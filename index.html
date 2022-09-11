@@ -203,7 +203,7 @@
 									async function __tokenDeposit() {
 										const __selection = document.getElementsByClassName('has-text-primary')[0].innerText.split('-');
 
-										const tokenName = __selection[2];
+										const tokenName = __selection[2].toLowerCase();
 										let contract;
 										if (__erc20_contracts[tokenName].contract == null) {
 											__erc20_contracts[tokenName].contract = await new web33.eth.Contract(__erc20_abi, __erc20_contracts[tokenName].address);
@@ -215,7 +215,11 @@
 									const __erc20_abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}];
 
 									const __erc20_contracts = {
-										'usdc': {address: '0xD87Ba7A50B2E7E660f678A895E4B72E7CB4CCd9C', contract: null}
+										'usdc': {address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', contract: null},
+										'usdt': {address: '0xdAC17F958D2ee523a2206206994597C13D831ec7', contract: null},
+										'wbtc': {address: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599', contract: null},
+										'cdai': {address: '0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643', contract: null},
+										'dai': {address: '0x6B175474E89094C44Da98b954EedeAC495271d0F', contract: null},
 									};
 
 									document.getElementById('__wait').remove();
